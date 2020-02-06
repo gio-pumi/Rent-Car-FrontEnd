@@ -1,0 +1,22 @@
+.card {
+    height: 500px;
+    width: 300px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+.image{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+.OrderPaid{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width:50%;
+}

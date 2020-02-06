@@ -1,0 +1,48 @@
+<div *ngFor="let branch of branches">
+  <div class="row" id="contatti">
+    <div class="container mt-5">
+      <div class="row" style="height:550px;">
+        <div class="col-md-6 maps">
+          <div _ngcontent-c17="">
+            <div _ngcontent-c17="" class="row">
+              <div _ngcontent-c17="" class="col-3 icon">
+                <img _ngcontent-c17="" alt="" class="img-fluid" src="/assets/images/location.png">
+              </div>
+              <div _ngcontent-c17="" class="col-9">
+                <table _ngcontent-c17="">
+                  <tbody _ngcontent-c17="">
+                    <tr _ngcontent-c17="">
+                      <td _ngcontent-c17="">
+                  <tbody _ngcontent-c17="">
+                    <tr _ngcontent-c17="">
+                      <td _ngcontent-c17="" class="lead branch">
+                        <span _ngcontent-c17="" class="h6-responsive">
+                          {{branch.address}}
+                        </span>
+                      </td>
+                    </tr>
+                    <tr _ngcontent-c17="">
+                      <td _ngcontent-c17="" class="lead">
+                        <span _ngcontent-c17="" class="h6-responsive">
+                          {{branch.name}}
+                        </span>
+                      </td>
+                    </tr>
+                  </tbody>
+                  </td>
+                  </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <div class="mapouter">
+            <div class="gmap_canvas">
+              <iframe width="400" height="400" id="gmap_canvas"
+                src="https://maps.google.com/maps?q=tel%20aviv%20hamasger&t=&z=13&ie=UTF8&iwloc=&output=embed"
+                frameborder="0" scrolling="no" marginheight="0" marginwidth="0">
+              </iframe>
+            </div>
+          </div>
+        </div>

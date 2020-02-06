@@ -1,0 +1,101 @@
+<div class="order col-lg-12" *ngIf="order.id == null">
+  <!--Calculate Form-->
+  <div class="container col-lg-6">
+    <!-- End -->
+    <div class="row mb-5">
+      <div class="col-lg-6 mx-auto">
+        <div class="bg-white p-5 rounded shadow">
+          <!-- Custom rounded search bars with input group -->
+          <form action="">
+            <h3 class="search">
+              SEARCH CAR
+            </h3>
+            <div *ngIf="avilable">
+              <p>Car price per day : {{car.pricePerDay | currency}}</p>
+              <p>Car daily late cost : {{car.pricePerDayIfDalay | currency}}</p>
+              <p>Days : {{totalDays}}</p>
+              <p>car price with those days is : {{car.pricePerDay * totalDays | currency}}</p>
+            </div>
+
+            
+
+            <!-- Rent Start/Return Date -->
+            <div class="p-1 bg-light rounded rounded-pill shadow-sm mb-4">
+              <div class="input-group">
+                <span class="input-group-text bg-white px-4 border-md border-right-0">
+                  <i class="fa fa-calendar-minus-o" aria-hidden="true"></i>
+                </span>
+                <input type="date" placeholder="Rent Start date" id="startDate" name="startDate" #Year="ngModel"
+                  [(ngModel)]="order.rentStartDate" aria-describedby="button-addon2"
+                  class="form-control border-0 bg-light">
+              </div>
+            </div>
+
+            <div class="p-1 bg-light rounded rounded-pill shadow-sm mb-4">
+              <div class="input-group">
+                <span class="input-group-text bg-white px-4 border-md border-right-0">
+                  <i class="fa fa-calendar-plus-o" aria-hidden="true"></i>
+                </span>
+                <input type="date" bsDatepicker placeholder="Rent End Date" id="endDate" name="endDate" #Year="ngModel"
+                  [(ngModel)]="order.rentEndDate" aria-describedby="button-addon2"
+                  class="form-control border-0 bg-light">
+              </div>
+            </div>
+
+            <div *ngIf="!carAvilableBanner" text-color="red">
+              <p>Car is Rented in those days</p>
+            </div>
+
+            <button *ngIf="!avilable" type="submit" (click)="CheckCarAvailability()"
+              class="btn btn-primary btn-block text-uppercase mb-2 rounded-pill shadow-sm">
+              <i class="fa fa-search"></i> Search
+            </button>
+
+            <button *ngIf="avilable && (user !== null)" type="submit" (click)="addOrder()"
+              class="btn btn-primary btn-block text-uppercase mb-2 rounded-pill shadow-sm">
+              <i class="fa fa-search"></i> Order
+            </button>
+
+          </form>
+          <!-- End -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" *ngIf="car">
+    <!-- Card image -->
+    <div class="view overlay">
+      <img class="card-img-top" src="http://localhost:58161/api/Images/{{car.image}}/" alt="Card image cap">
+    </div>
+    <!-- Card content -->
+    <div class="card-body">
+      <!-- Title -->
+      <h4 class="card-title">{{car.manufacturer}} {{car.model}}</h4>
+      <!-- Text -->
+      <p>Car Number: {{car.number}}</p>
+      <p>Car Milage: {{car.mileage}}</p>
+      <p>Car isOk2Rent: {{car.isOk2Rent}}</p>
+    </div>
+  </div>
+</div>
+
+<div class="orderResult col-lg-12 border border-success rounded bg-light text-dark" *ngIf="order.id != null">
+  <!-- Card image -->
+  <div class="view overlay">
+    <p>Your Order Is Ready</p>
+
+    <img class="card-img-top" src="http://localhost:58161/api/Images/{{car.image}}/" alt="Card image cap">
+  </div>
+  <!-- Card content -->
+  <div class="card-body">
+    <!-- Title -->
+    <h4 class="card-title">{{car.manufacturer}} {{car.model}}</h4>
+    <!-- Text -->
+    <p>Order Number: {{order.id}}</p>
+    <p>Start of the Rent: {{order.rentStartDate}}</p>
+    <p>End of the Rent: {{order.rentEndDate}}</p>
+    <p>Car number: {{car.number}}</p>
+    <p>Price: {{car.pricePerDay * totalDays | currency}}</p>
+  </div>
+</div>

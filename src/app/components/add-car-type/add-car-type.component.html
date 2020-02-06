@@ -1,0 +1,90 @@
+<div class="container">
+    <div class="row mb-5">
+      <div class="col-lg-6 mx-auto">
+        <div class="bg-white p-5 rounded shadow">
+          <form name="AddCarBrand" #carTypeForm="ngForm"  action="">
+              <h3  class="search">
+                  Add Brand Of Car 
+              </h3>
+<!-- Manufacturer -->
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <label class="input-group-text fa fa-car bg-white px-4 border-md border-right-0" for="inputGroupSelect01"></label>
+            </div>
+            <select class="custom-select" id="inputGroupSelect01"  #manufacturer="ngModel"   [(ngModel)]="carBrand.manufacturer" name="carBrand">
+              <option selected>Choose...</option>             
+              <option value="Mercedes">Mercedes</option>
+              <option value="BMW">BMW</option>
+              <option value="Ford">Ford</option>
+              <option value="Skoda">Skoda</option>
+              <option value="Hiunday">Hyundai</option>
+            </select>
+          </div>
+          
+<!-- Model-->
+            <div class="p-1 bg-light rounded rounded-pill shadow-sm mb-4">
+                <div class="input-group">
+                    <span class="input-group-text bg-white px-4 border-md border-right-0">
+                        <i class="fa fa-car " aria-hidden="true"></i>
+                    </span>
+                  <input type="text" id="Model" placeholder="Model"  class="form-control border-0 bg-light"
+                  required="" #model="ngModel"  [(ngModel)]="carBrand.model" name="model" value="model">
+                  <span *ngIf="model.invalid && model.touched ">Missing Model Name</span>
+                </div>
+            </div>
+<!-- Transmission -->
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <label class="input-group-text fa fa-car bg-white px-4 border-md border-right-0" for="inputGroupSelect01"></label>
+                  </div>
+                  <select class="custom-select" id="inputGroupSelect01"  #transmission="ngModel"  [(ngModel)]="carBrand.transmission" name="transmission">
+                    <option selected>Choose...</option>             
+                    <option value="Manual">Manual</option>
+                    <option value="Tiptronic">Tiptronic</option>
+                    <option value="Automatic">Automatic</option>
+                  </select>
+                </div>
+                
+<!-- Year -->
+                <div class="p-1 bg-light rounded rounded-pill shadow-sm mb-4" >
+                    <div class="input-group">
+                        <span class="input-group-text bg-white px-4 border-md border-right-0">
+                            <i class="fa fa-calendar-check-o" aria-hidden="true"></i>
+                        </span>
+                      <input type="number" placeholder="   Year" class="form-control border-0 bg-light"
+                      required="" #year="ngModel"  [(ngModel)]="carBrand.productionYear" name="year" value="year">
+                      <span *ngIf="year.invalid && year.touched ">Missing Year</span>
+                    </div>
+                  </div>
+<!-- Price Per day/ Delay price per day -->
+                  <div class="p-1 bg-light rounded rounded-pill shadow-sm mb-4">
+                      <div class="input-group">
+                          <span class="input-group-text bg-white px-4 border-md border-right-0">
+                              <i class="fa fa-calendar-minus-o" aria-hidden="true"></i>
+                          </span>
+                        <input type="number"   placeholder="Car Price Per Day"   class="form-control border-0 bg-light"
+                        required="" #pricePerDay="ngModel"  [(ngModel)]="carBrand.pricePerDay" name="pricePerDay" value="pricePerDay">
+                        <span *ngIf="pricePerDay.invalid && pricePerDay.touched ">Missing Car Price Per Day</span>
+                      </div>
+                    </div>
+                    <div class="p-1 bg-light rounded rounded-pill shadow-sm mb-4">
+                        <div class="input-group">
+                            <span class="input-group-text bg-white px-4 border-md border-right-0">
+                                <i class="fa fa-calendar-plus-o" aria-hidden="true"></i>
+                            </span>
+                          <input type="number"  placeholder="car Price Pe rDay If Dalay" class="form-control border-0 bg-light"
+                          required="" #pricePerDayIfDalay="ngModel"  [(ngModel)]="carBrand.pricePerDayIfDalay" name="pricePerDayIfDalay" value="pricePerDayIfDalay">
+                          <span *ngIf="pricePerDayIfDalay.invalid && pricePerDayIfDalay.touched ">Missing Car Price Per Day If Dalay</span>
+                        </div>
+                      </div>
+
+                      <button type="submit" (click)="addcarBrand()" class="btn btn-primary btn-block text-uppercase mb-2 rounded-pill shadow-sm "  [disabled] ="!carTypeForm.valid">
+                        <i class="fa fa-search" aria-hidden="true"></i> Add Brand 
+                      </button>
+          </form>
+          <!-- End -->
+        </div>
+      </div>
+    </div>
+  
+  

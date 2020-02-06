@@ -1,0 +1,66 @@
+<div class="conteiner ">
+  <div class="row text-dark ">
+    <div class=" col-6 col-sm-6 col-md-6  col-lg-9  col-xl-8 order-xl-2 order-lg-2 order-md-1 order-2 order-sm-1  "
+      id="navigation">
+      <nav class="navbar navbar-expand-lg  bg-transparent">
+        <button class="navbar-toggler second-button" type="button " data-toggle="collapse"
+          data-target="#navbarSupportedContent23" aria-controls="navbarSupportedContent23" aria-expanded="false"
+          aria-label="Toggle navigation">
+          <div class="animated-icon2"><span></span><span></span><span></span><span></span></div>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent23">
+          <ul class="navbar-nav mr-auto ">
+            <div class="z-depth-1 img-div img-fluid">
+              <li class="nav-item avatar">
+                <a class="nav-link pt-0 pb-0" *ngIf="isAdmin" routerLink="/admin" id="admin">
+                  <div _ngcontent-c1="" class="img-div img-fluid rounded-circle z-depth-1"
+                    style="background-image: url(&quot;/assets/images/user-default.png&quot;);"></div>
+                </a>
+              </li>
+              <li class="nav-item avatar">
+                <a class="nav-link pt-0 pb-0" *ngIf="isUser" routerLink="/user" id="user">
+                  <div _ngcontent-c1="" class="img-div img-fluid rounded-circle z-depth-1"
+                    style="background-image: url(&quot;/assets/images/user-default.png&quot;);"></div>
+                </a>
+              </li>
+              <li class="nav-item avatar">
+                <a class="nav-link pt-0 pb-0" *ngIf="isEmployee" routerLink="/employee" id="employee">
+                  <div _ngcontent-c1="" class="img-div img-fluid rounded-circle z-depth-1"
+                    style="background-image: url(&quot;/assets/images/user-default.png&quot;);"></div>
+                </a>
+              </li>
+            </div>
+            <li class="nav-item active  ">
+              <a class="nav-link text-dark" routerli routerLink="/home" id="home">HOME</a>
+            </li>
+            <li class="nav-item active">
+              <a *ngIf="!isEmployee" class="nav-link text-dark" routerLink="/search" id="catalog">SEARCH CAR</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-dark" routerLink="/contactUs" id="contact">CONTACT US</a>
+            </li>
+            <li class="nav-item">
+              <a *ngIf="!isLoggedIn" class="nav-link text-dark" routerLink="/login" id="logIn"><i
+                  class="fa fa-sign-in"></i> LOG
+                IN</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-dark" *ngIf="isSignUp" routerLink="/signUp" id="signUp"><i
+                  class="fa fa-user-plus"></i> SIGN
+                UP</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-dark" *ngIf="isLoggedIn" routerLink="/logout" id="signUp"><i
+                  class="fa fa-sign-out"></i> LOG
+                OUT</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+    <div class="col-6 col-sm-6 col-md-6 col-lg-3 col-xl-3 order-xl-1 order-lg-1 order-2 order-md-2 order-sm-2" id="logo"
+      clas="justify-content-sm-start">
+      <img src="/assets/images/Logo.png" width="100" height="150">
+    </div>
+  </div>
+</div>

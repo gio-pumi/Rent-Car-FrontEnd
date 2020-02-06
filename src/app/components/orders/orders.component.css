@@ -1,0 +1,31 @@
+.pagination{
+    align-content: center;
+    padding-left: 320px;
+  }
+
+.carList{
+    display: inline-block;
+    padding: 15px;
+  }
+
+.card {
+    height: 500px;
+    width: 300px;
+}
+.order{
+    display: inline-block;
+}
+
+.container{
+    float: left;
+}
+
+.orderResult {
+    height: 600px;
+    width: 300px;
+    margin: auto;
+    padding: 10px;
+}
+
+
+

@@ -1,0 +1,10 @@
+div{
+    background-image: url("/assets/images/Bg.jpg" );
+    background-size: cover;
+
+}
+
+main{
+    height: 900px;
+}
+

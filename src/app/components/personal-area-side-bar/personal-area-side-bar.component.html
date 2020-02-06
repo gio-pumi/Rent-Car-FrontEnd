@@ -1,0 +1,33 @@
+<div class="nav-side-menu">
+  <div class="brand">
+    <i class=""></i>
+    <p> Hello, {{firstName}} </p>
+  </div>
+  <i class="fa fa-bars fa-2x toggle-btn" data-toggle="collapse" data-target="#menu-content"></i>
+  <div class="menu-list">
+    <ul id="menu-content" class="menu-content collapse out">
+      <li>
+        <a *ngIf="isUser" class="fa fa-user fa-lg fa-lg"
+          [routerLink]="[{ outlets: { 'addCarBrandOraddCar': ['app-add-car'] } }]" id="Profile"> Profile</a>
+      </li>
+      <li>
+        <a *ngIf="isAdmin" class="nav-link"
+          [routerLink]="[{ outlets: { 'addCarBrandOraddCar': ['app-add-car-brand'] } }]" id="addCar"><i
+            class="fa fa-dashboard fa-lg"></i> ADD CAR Brand </a>
+      </li>
+      <li>
+        <a *ngIf="isAdmin" class="nav-link" [routerLink]="[{ outlets: { 'addCarBrandOraddCar': ['app-add-car'] } }]"
+          id="addCarBrand"><i class="fa fa-dashboard fa-lg"></i> ADD CAR</a>
+      </li>
+      <li>
+        <a *ngIf="isUser" class="fa fa fa-shopping-cart fa-lg" [routerLink]="['/MyOrders']" id="My Orders"> My
+          Orders</a>
+      </li>
+      <li>
+        <a *ngIf="isEmployee" class="fa fa fa-shopping-cart fa-lg" [routerLink]="['/manageOrders']" id="My Orders">
+          Manage Orders</a>
+      </li>
+    </ul>
+  </div>
+</div>
+<router-outlet name="addCarBrandOraddCar"></router-outlet>

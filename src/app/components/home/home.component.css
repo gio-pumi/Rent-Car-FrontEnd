@@ -1,0 +1,16 @@
+#home{
+    color: white;
+}
+
+.card{
+    display:inline-block;
+    text-align: center;
+    width: 400px;
+    margin: auto;
+    padding: 50px;
+}
+
+h1{ 
+    color:green; 
+    text-align:center; 
+} 

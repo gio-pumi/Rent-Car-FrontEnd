@@ -1,0 +1,18 @@
+<!-- Card -->
+<div class="card ">
+  <!-- Card image -->
+  <div class="view overlay">
+    <img class="card-img-top" src="http://localhost:58161/api/Images/{{car.image}}/" alt="Card image cap">
+  </div>
+  <!-- Card content -->
+  <div class="card-body">
+    <!-- Title -->
+    <h4 class="card-title">{{car.manufacturer}} {{car.model}}</h4>
+
+    <!-- Text -->
+    <p>Car Number: {{car.number}}</p>
+    <p>Car Milage: {{car.mileage}}</p>
+    <p>Car isOk2Rent: {{car.isOk2Rent}}</p>
+    <a  routerLink="/calculationCarPrice/{{car.id}}"  class="btn btn-primary">Order</a>
+  </div>
+</div>

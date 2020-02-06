@@ -1,0 +1,88 @@
+<div class="container">
+  <div class="row mb-5">
+    <div class="col-lg-6 mx-auto">
+      <div class="bg-white p-5 rounded shadow">
+        <form action="">
+          <h3 class="search">
+            Add Car
+          </h3>
+          <!-- brand -->
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <label class="input-group-text fa fa-car bg-white px-4 border-md border-right-0"
+                for="inputGroupSelect01"></label>
+            </div>
+            <select class="custom-select" id="inputGroupSelect01" #typeId="ngModel" [(ngModel)]="car.typeId"
+              name="typeId">
+              <option selected>Choose Car Type(Brand) ID From Data Base...</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="7">7</option>
+            </select>
+          </div>
+          <!-- mileage-->
+          <div class="p-1 bg-light rounded rounded-pill shadow-sm mb-4">
+            <div class="input-group">
+              <span class="input-group-text bg-white px-4 border-md border-right-0">
+                <i class="fa fa-car " aria-hidden="true"></i>
+
+              </span>
+              <input type="number" placeholder="  mileage" class="form-control border-0 bg-light" #mileage="ngModel"
+                [(ngModel)]="car.mileage" name="mileage" value="mileage">
+            </div>
+          </div>
+
+          <!-- properForRent -->
+          <div class="p-1 bg-light rounded rounded-pill shadow-sm mb-4">
+            <div class="input-group">
+              <span class="input-group-text bg-white px-4 border-md border-right-0">
+                <i class="fa fa-calendar-check-o" aria-hidden="true"></i>
+              </span>
+              <input type="text" placeholder="   Proper For Rent" class="form-control border-0 bg-light"
+                #properForRent="ngModel" [(ngModel)]="car.properForRent" name="properForRent">
+            </div>
+          </div>
+          <!-- Car Number -->
+          <div class="p-1 bg-light rounded rounded-pill shadow-sm mb-4">
+            <div class="input-group">
+              <span class="input-group-text bg-white px-4 border-md border-right-0">
+                <i class="fa fa-calendar-plus-o" aria-hidden="true"></i>
+              </span>
+              <input type="number" placeholder="Car Number" class="form-control border-0 bg-light" #number="ngModel"
+                [(ngModel)]="car.number" name="number">
+            </div>
+          </div>
+          <!-- branch -->
+          <div class="p-1 bg-light rounded rounded-pill shadow-sm mb-4">
+            <div class="input-group">
+              <span class="input-group-text bg-white px-4 border-md border-right-0">
+                <i class="fa fa-calendar-plus-o" aria-hidden="true"></i>
+              </span>
+              <input type="text" placeholder="Branch Place" class="form-control border-0 bg-light"
+                #branchPlace="ngModel" [(ngModel)]="car.branchPlace" name="branchPlace">
+            </div>
+          </div>
+          <!-- Upload Image -->
+          <div class="container p-2">
+            <div class="row">
+              <div class="col-lg-5 mx-auto">
+                <label for="fileUpload" class="file-upload btn btn-primary btn-block rounded-pill shadow"><i
+                    class="fa fa-upload mr-2"></i>Browse for file in .jpg format ...
+                  <input id="fileUpload" type="file" #image name="image" accept="image/*"
+                    (change)="handleFileInput($event.target.files)">
+                </label>
+                <img [src]="imageUrl" style="width:300px; height:200px;">
+              </div>
+            </div>
+          </div>
+          <button type="submit" (click)="addcar()"
+            class="btn btn-primary btn-block text-uppercase mb-2 rounded-pill shadow-sm" [disabled]="image.value=='' ">
+            <i class="fa fa-search" aria-hidden="true"></i> Add Car
+          </button>
+        </form>
+        <!-- End -->
+      </div>
+    </div>
+  </div>

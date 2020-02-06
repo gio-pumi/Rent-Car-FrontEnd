@@ -1,0 +1,123 @@
+<div class="row">
+  <!-- Cars With Header -->
+  <div class="col-6">
+    <!--Search Header-->
+    <div class="cars-header">
+      <div class="header">
+        <h3 class="header  text-center">
+          <i aria-hidden="true" class="fa fa-car"></i>
+          Search Result
+        </h3>
+        <h5 class="text-center mb-3 mt-3">
+          <span>
+            {{cars}} Cars Found
+          </span>
+          <br><br><br><br>
+          <pagination-controls class="pagination" (pageChange)="p = $event"></pagination-controls>
+        </h5><br><br><br>
+      </div>
+    </div>
+
+    <div class="row" text-white>
+      <!--Cars List-->
+      <div class="col-12" text-white>
+        <div class="carList" *ngFor="let car of displayCar | paginate: {itemsPerPage:3, currentPage: p}">
+          <img *ngIf="!displayCar" src="/assets/images/spinner.gif" width="300" height="300">
+          <app-car-thumbnail [car]="car" text-white></app-car-thumbnail>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!--Search Form-->
+  <div class="container col-6">
+    <!-- End -->
+    <div class="row mb-5">
+      <div class="col-lg-6 mx-auto">
+        <div class="bg-white p-5 rounded shadow">
+          <!-- Custom rounded search bars with input group -->
+          <form action="" #searchCarForm="ngForm">
+            <h3 class="search">
+              SEARCH CAR
+            </h3>
+
+            <!-- Transmission -->
+            <div class="p-1 bg-light rounded rounded-pill shadow-sm mb-4">
+              <div class="input-group">
+                <span class="input-group-text bg-white px-4 border-md border-right-0">
+                  <i aria-hidden="true" class="fa fa-cogs"></i>
+                </span>
+                <input type="text" placeholder="   Transmission" required="" id="Transmission" name="Transmission"
+                  #Transmission="ngModel" [(ngModel)]="searchCar.transmission" aria-describedby="button-addon2"
+                  class="form-control border-0 bg-light">
+              </div>
+            </div>
+            <!--   Production Date -->
+            <div class="p-1 bg-light rounded rounded-pill shadow-sm mb-4">
+              <div class="input-group">
+                <span class="input-group-text bg-white px-4 border-md border-right-0">
+                  <i class="fa fa-calendar-check-o" aria-hidden="true"></i>
+                </span>
+                <input type="number" placeholder="   Production Date" required="" id="productionYear"
+                  name="productionYear" #productionYear="ngModel" [(ngModel)]="searchCar.productionYear"
+                  aria-describedby="button-addon2" class="form-control border-0 bg-light">
+              </div>
+            </div>
+            <!-- Manufacturer -->
+
+            <div class="p-1 bg-light rounded rounded-pill shadow-sm mb-4">
+              <div class="input-group">
+                <span class="input-group-text bg-white px-4 border-md border-right-0">
+                  <i class="fa fa-users" aria-hidden="true"></i>
+                </span>
+                <input type="text" placeholder="   Manufacturer" required="" id="manufacturer" name="manufacturer"
+                  #manufacturer="ngModel" [(ngModel)]="searchCar.manufacturer" aria-describedby="button-addon2"
+                  class="form-control border-0 bg-light">
+              </div>
+            </div>
+            <!-- Model-->
+            <div class="p-1 bg-light rounded rounded-pill shadow-sm mb-4">
+              <div class="input-group">
+                <span class="input-group-text bg-white px-4 border-md border-right-0">
+                  <i class="fa fa-car " aria-hidden="true"></i>
+
+                </span>
+                <input type="text" placeholder="model" required="" id="model" name="model" #model="ngModel"
+                  [(ngModel)]="searchCar.model" aria-describedby="button-addon2" class="form-control border-0 bg-light">
+              </div>
+            </div>
+
+            <!-- Rent Start/Return Date -->
+            <div class="p-1 bg-light rounded rounded-pill shadow-sm mb-4">
+              <div class="input-group">
+                <span class="input-group-text bg-white px-4 border-md border-right-0">
+                  <i class="fa fa-calendar-minus-o" aria-hidden="true"></i>
+                </span>
+                <input type="date" placeholder="Rent Start date" id="startDate" name="startDate" #Year="ngModel"
+                  [(ngModel)]="searchCar.startDate" aria-describedby="button-addon2"
+                  class="form-control border-0 bg-light">
+              </div>
+            </div>
+
+            <div class="p-1 bg-light rounded rounded-pill shadow-sm mb-4">
+              <div class="input-group">
+                <span class="input-group-text bg-white px-4 border-md border-right-0">
+                  <i class="fa fa-calendar-plus-o" aria-hidden="true"></i>
+                </span>
+                <input type="date" bsDatepicker placeholder="Rent End Date" id="endDate" name="endDate" #Year="ngModel"
+                  [(ngModel)]="searchCar.endDate" aria-describedby="button-addon2"
+                  class="form-control border-0 bg-light">
+              </div>
+            </div>
+            <button type="submit" (click)="search()"
+              class="btn btn-primary btn-block text-uppercase mb-2 rounded-pill shadow-sm"
+              [disabled]="!searchCarForm.valid">
+              <i class="fa fa-search" aria-hidden="true"></i> Search
+            </button>
+          </form>
+          <!-- End -->
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

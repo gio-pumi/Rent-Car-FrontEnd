@@ -1,0 +1,46 @@
+<div class="row">
+  <!-- Cars With Header -->
+  <div class="col-6">
+    <!--Search Header-->
+    <div class="cars-header ">
+      <div class="header">
+        <h3 class="header  text-center">
+          <i aria-hidden="true" class="fa fa-car"></i>
+          My Cars
+        </h3>
+        <h5 class="text-center mb-3 mt-3">
+          <span>
+            {{cars.length}} Ordered Cars
+          </span>
+          <br><br><br><br>
+          <pagination-controls class="pagination  " (pageChange)="p = $event"></pagination-controls>
+        </h5><br><br><br>
+      </div>
+    </div>
+
+    <img *ngIf="!cars" src="/assets/images/spinner.gif" width="300" height="300">
+    <div class="row">
+      <!--Cars List-->
+      <div class="col-12">
+        <div class="carList " *ngFor="let car of cars | paginate: {itemsPerPage:3, currentPage: p}">
+          <div class="card">
+            <!-- Card image -->
+            <div class="view overlay">
+              <img class="card-img-top" src="http://localhost:58161/api/Images/{{car.image}}/" alt="Card image cap">
+            </div>
+            <!-- Card content -->
+            <div class="card-body">
+              <!-- Title -->
+              <h4 class="card-title">{{cars.manufacturer}} {{car.model}}</h4>
+              <!-- Text -->
+              <p>orderId: {{car.carOrder.id}}</p>
+              <p>Car Number: {{car.number}}</p>
+              <p>Car rentStartDate: {{car.carOrder.rentStartDate | date}}</p>
+              <p>Car rentEndDate: {{car.carOrder.rentEndDate | date}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
